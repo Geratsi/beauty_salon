@@ -8,6 +8,7 @@ import 'package:easy_mask/easy_mask.dart';
 class TextFormWidget extends StatefulWidget {
   const TextFormWidget({Key? key}) : super(key: key);
 
+
   @override
   State<TextFormWidget> createState() => _TextFormWidgetState();
 }

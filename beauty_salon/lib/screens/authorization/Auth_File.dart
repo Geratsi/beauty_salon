@@ -13,7 +13,6 @@ class AuthorizationWidget extends StatefulWidget {
   State<AuthorizationWidget> createState() => _AuthorizationWidgetState();
 }
 
-
 class _AuthorizationWidgetState extends State<AuthorizationWidget> {
   @override
   Widget build(BuildContext context) {

@@ -6,7 +6,6 @@ class Button extends StatelessWidget {
   const Button({Key? key, this.height, this.width,
     this.borderRadius, this.color}) : super(key: key);
 
-
   final double? height;
   final double? width;
   final double? borderRadius;

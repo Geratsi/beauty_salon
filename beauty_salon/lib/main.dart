@@ -20,7 +20,6 @@ class MyApp extends StatelessWidget {
          statusBarIconBrightness: Brightness.dark, // status bar icons' color
          systemNavigationBarIconBrightness: Brightness.dark, //navigation bar icons' color
     ));
-
     return MaterialApp(
       title: 'Beauty salon',
       theme: ThemeData(

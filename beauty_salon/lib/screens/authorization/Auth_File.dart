@@ -1,7 +1,7 @@
 
 import 'package:beauty_salon/config.dart';
-import 'package:beauty_salon/screens/authorization/authscreencomponents/ShapesWidgetFile.dart';
-import 'package:beauty_salon/screens/authorization/authscreencomponents/TextFormFile.dart';
+import 'package:beauty_salon/screens/authorization/authscreencomponents/ShapesWidget_File.dart';
+import 'package:beauty_salon/screens/authorization/authscreencomponents/TextForm_File.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -23,7 +23,7 @@ class _AuthorizationWidgetState extends State<AuthorizationWidget> {
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
+              children: const [
                 ShapesWidget(),
                 TextFormWidget(),
               ],

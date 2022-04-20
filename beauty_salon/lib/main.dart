@@ -1,7 +1,7 @@
 
 import 'package:beauty_salon/config.dart';
 import 'package:flutter/material.dart';
-import 'package:beauty_salon/screens/authorization/AuthFile.dart';
+import 'package:beauty_salon/screens/authorization/Auth_File.dart';
 import 'package:flutter/services.dart';
 import 'package:beauty_salon/config.dart';
 

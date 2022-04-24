@@ -12,10 +12,7 @@ class CalendarWidget extends StatefulWidget {
 
 class _CalendarWidgetState extends State<CalendarWidget> {
 
-
   final CalendarWeekController _controller = CalendarWeekController();
-
-
 
   @override
   Widget build(BuildContext context) {

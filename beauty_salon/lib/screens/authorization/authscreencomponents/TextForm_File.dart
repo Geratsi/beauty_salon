@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:beauty_salon/config.dart';
-import 'package:beauty_salon/screens/session_schedule/Schedule_Page.dart';
+import 'package:beauty_salon/screens/session_schedule/BottonNavigBarWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_mask/easy_mask.dart';
 

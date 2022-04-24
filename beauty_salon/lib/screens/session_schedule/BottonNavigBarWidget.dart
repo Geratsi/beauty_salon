@@ -1,13 +1,11 @@
-import 'dart:math';
 
+import 'package:beauty_salon/Api.dart';
 import 'package:beauty_salon/config.dart';
-import 'package:beauty_salon/screens/session_schedule/components/ScreensNavigationBar/PresentationScreen2/PresentationScreen.dart';
-import 'package:beauty_salon/screens/session_schedule/components/ScreensNavigationBar/ProfileScreen3/ProfileScreen.dart';
-import 'package:beauty_salon/screens/session_schedule/components/ScreensNavigationBar/ScheduleScreen1/ScheduleScreen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:beauty_salon/screens/session_schedule/screens_navig_bar/PresentationScreen2/PresentationScreen.dart';
+import 'package:beauty_salon/screens/session_schedule/screens_navig_bar/ProfileScreen3/ProfileScreen.dart';
+import 'package:beauty_salon/screens/session_schedule/screens_navig_bar/ScheduleScreen1/ScheduleScreen.dart';
+import 'package:beauty_salon/tools/HumanData.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 
 class SessionSchedule extends StatefulWidget {
   const SessionSchedule({Key? key}) : super(key: key);
@@ -18,13 +16,17 @@ class SessionSchedule extends StatefulWidget {
 
 class _SessionScheduleState extends State<SessionSchedule> {
 
-  List<Widget> screensNavigationBar = const [
-    ScheduleScreen(),
-    PresentationScreen(),
-    ProfileScreen(),
-  ];
-
-  int _selectedIndex = 0;
+  late List<HumanData> humanData;
+  
+  @override
+  void initState() {
+    Api.apiHumanData().then((value) {
+      setState(() {
+        humanData = value;
+      });
+    });
+    super.initState();
+  }
 
   void _onItemTap(int index) {
     setState(() {
@@ -32,10 +34,20 @@ class _SessionScheduleState extends State<SessionSchedule> {
     });
   }
 
+  int _selectedIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screensNavigationBar[_selectedIndex],
+      body: _selectedIndex == 0 ?
+      ScheduleScreen(humanData: humanData,) :
+          _selectedIndex == 1 ?
+          PresentationScreen(humanData: humanData,) :
+              _selectedIndex == 2 ?
+              ProfileScreen(humanData: humanData,) :
+                  const Center(
+                    child: CircularProgressIndicator(),
+                  ),
 
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Config.whiteColor,

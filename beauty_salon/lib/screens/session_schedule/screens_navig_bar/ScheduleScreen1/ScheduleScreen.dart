@@ -3,12 +3,17 @@ import 'dart:math';
 
 import 'package:beauty_salon/config.dart';
 import 'package:beauty_salon/entity/Calendar.dart';
+import 'package:beauty_salon/tools/HumanData.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_calendar_week/flutter_calendar_week.dart';
 
 class ScheduleScreen extends StatefulWidget {
-  const ScheduleScreen({Key? key}) : super(key: key);
+  ScheduleScreen({Key? key,
+    required this.humanData
+  }) : super(key: key);
+
+  final List <HumanData> humanData;
 
   @override
   State<ScheduleScreen> createState() => _ScheduleScreenState();
@@ -16,20 +21,13 @@ class ScheduleScreen extends StatefulWidget {
 
 class _ScheduleScreenState extends State<ScheduleScreen> {
 
+  late List<HumanData> humansData;
 
-
-
-  final List _listItems = [
-    'Иванов',
-    'Попов',
-    'Гнездов',
-    'Лавров',
-    'Бздов',
-    'Ганчаров',
-    'Петров'
-  ];
-
-
+  @override
+  void initState() {
+    super.initState();
+    humansData = widget.humanData;
+  }
 
   final List<Color> circleColors = [
     Colors.lightGreen.shade50,
@@ -44,10 +42,8 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     Colors.teal.shade50,
   ];
 
-
-
   Color randomGenerator() {
-    return circleColors[Random().nextInt(_listItems.length)];
+    return circleColors[Random().nextInt(humansData.length)];
   }
 
   final CalendarWeekController _controller = CalendarWeekController();
@@ -160,7 +156,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         color: Config.primaryColor,
         child: ListView.builder(
           padding: EdgeInsets.symmetric(horizontal: Config.padding),
-          itemCount: _listItems.length,
+          itemCount: humansData.length,
           itemBuilder: (BuildContext context, index) {
             return GestureDetector(
               child: InkWell(
@@ -173,13 +169,34 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
                   elevation: 0.1,
                   margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 0),
                   color: randomGenerator(),
-                  child: Container(
-                    padding: const EdgeInsets.all(30),
-                    child: Text(
-                      _listItems[index],
-                      style: const TextStyle(fontSize: 24),
+                  child: Padding(
+                    padding: EdgeInsets.all(Config.padding),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(humansData[index].recordingTime),
+                            Icon(Icons.access_alarm),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Text(humansData[index].name + ' ' + humansData[index].surname),
+                            SizedBox(width: 30,),
+                            Text(humansData[index].number),
+                          ],
+                        ),
+                        SizedBox(height: Config.padding / 4,),
+                        Row(
+                          children: [
+                            for (var i in humansData[index].services)
+                            Text(i + ',  '),
+                          ],
+                        )
+                      ],
                     ),
-                  ),
+                  )
                 ),
               ),
             );

@@ -5,6 +5,7 @@ import 'package:beauty_salon/screens/session_schedule/screens_navig_bar/Presenta
 import 'package:beauty_salon/screens/session_schedule/screens_navig_bar/ProfileScreen3/ProfileScreen.dart';
 import 'package:beauty_salon/screens/session_schedule/screens_navig_bar/ScheduleScreen1/ScheduleScreen.dart';
 import 'package:beauty_salon/tools/HumanData.dart';
+import 'package:beauty_salon/tools/Services.dart';
 import 'package:flutter/material.dart';
 
 class SessionSchedule extends StatefulWidget {
@@ -17,6 +18,8 @@ class SessionSchedule extends StatefulWidget {
 class _SessionScheduleState extends State<SessionSchedule> {
 
   late List<HumanData> humanData;
+
+  late List<Services> services;
   
   @override
   void initState() {
@@ -26,6 +29,12 @@ class _SessionScheduleState extends State<SessionSchedule> {
       });
     });
     super.initState();
+
+    Api.apiServices().then((value) {
+        setState(() {
+          services = value;
+        });
+      });
   }
 
   void _onItemTap(int index) {
@@ -42,9 +51,9 @@ class _SessionScheduleState extends State<SessionSchedule> {
       body: _selectedIndex == 0 ?
       ScheduleScreen(humanData: humanData,) :
           _selectedIndex == 1 ?
-          PresentationScreen(humanData: humanData,) :
+          PresentationScreen(services: services,) :
               _selectedIndex == 2 ?
-              ProfileScreen(humanData: humanData,) :
+              const ProfileScreen() :
                   const Center(
                     child: CircularProgressIndicator(),
                   ),

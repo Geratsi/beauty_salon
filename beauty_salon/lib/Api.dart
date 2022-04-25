@@ -1,6 +1,7 @@
 
 import 'package:beauty_salon/entity/Calendar.dart';
 import 'package:beauty_salon/tools/HumanData.dart';
+import 'package:beauty_salon/tools/Services.dart';
 import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 
@@ -20,7 +21,15 @@ class Api{
     return humans;
   }
   
-  
+  static Future<List<Services>> apiServices() async {
+    List <Services> services= [];
+    services.add(Services('УХОД HYDRAFACIAL', 2.3, 'PDF'));
+    services.add(Services('ХОЛОДНЫЙ ЛАЗЕРНЫЙ ПИЛИНГ', 2.3, 'JPG'));
+    services.add(Services('ПЛАЗМОТЕРАПИЯ', 2.3, 'PDF'));
+    services.add(Services('ЛАЗЕРНАЯ ЭПИЛЯЦИЯ', 2.3, 'PDF'));
+    services.add(Services('4D-ОМОЛОЖЕНИЕ', 2.3, 'PDF'));
+    return services;
+  }
 }
 
 

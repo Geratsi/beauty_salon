@@ -21,12 +21,14 @@ class ScheduleScreen extends StatefulWidget {
 
 class _ScheduleScreenState extends State<ScheduleScreen> {
 
-  late List<HumanData> humansData;
+  List<HumanData> humansData = [];
 
   @override
   void initState() {
     super.initState();
-    humansData = widget.humanData;
+    setState(() {
+      humansData = widget.humanData;
+    });
   }
 
   final List<Color> circleColors = [
@@ -69,12 +71,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
         ? const Text('Сентябрь')
         : _controller.selectedDate.month == 10
         ? const Text('Октябрь')
-        : _controller.selectedDate.month ==
-        11
+        : _controller.selectedDate.month == 11
         ? const Text('Ноябрь')
-        : _controller.selectedDate
-        .month ==
-        12
+        : _controller.selectedDate.month == 12
         ? const Text('Декабрь')
         : const Text('');
   }
@@ -159,8 +158,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           itemCount: humansData.length,
           itemBuilder: (BuildContext context, index) {
             return GestureDetector(
+              onTap: (){},
               child: InkWell(
-                onTap: (){},
+                //onTap: (){},
                 child: Card(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(

@@ -14,7 +14,7 @@ class _MasterProfileState extends State<MasterProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: TextButton(
+        title: TextButton(
           child: const Text('Назад',
             style: TextStyle(
               color: Colors.black,
@@ -24,6 +24,9 @@ class _MasterProfileState extends State<MasterProfile> {
             Navigator.pop(context);
           },
         ),
+      ),
+      body: Container(
+        color: Colors.blue,
       ),
     );
   }

@@ -86,22 +86,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                       ),
                       SizedBox(width: Config.padding,),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'Здесь будет\nShared Preference',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: Config.bigSizeText,
-                              fontWeight: FontWeight.w500,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Здесь будет Shared Preference',
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: Config.bigSizeText,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              maxLines: 2,
+                              overflow: TextOverflow.ellipsis,
                             ),
-                          ),
-                          SizedBox(
-                            height: Config.padding / 2,
-                          ),
-                          const Text('Студия: Epilier Казань'),
-                        ],
+                            SizedBox(
+                              height: Config.padding / 2,
+                            ),
+                            const Text('Студия: Epilier Казань'),
+                          ],
+                        ),
                       ),
                       SizedBox(width: Config.padding * 4,),
                       Icon(

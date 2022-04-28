@@ -26,7 +26,7 @@ class _MasterProfileState extends State<MasterProfile> {
         ),
       ),
       body: Container(
-        color: Colors.blue,
+        color: Colors.white,
       ),
     );
   }

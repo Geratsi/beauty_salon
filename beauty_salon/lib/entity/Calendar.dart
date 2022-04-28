@@ -2,6 +2,7 @@ import 'package:beauty_salon/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_calendar_week/flutter_calendar_week.dart';
+import 'package:intl/intl.dart';
 
 class CalendarWidget extends StatefulWidget {
   const CalendarWidget({Key? key}) : super(key: key);
@@ -52,7 +53,9 @@ class _CalendarWidgetState extends State<CalendarWidget> {
       ),
       onDatePressed: (DateTime datetime) {
         // Do something
-        setState(() {});
+        setState(() {
+          print(DateFormat('d.MM.y').format(_controller.selectedDate));
+        });
       },
       onDateLongPressed: (DateTime datetime) {
         // Do something

@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:beauty_salon/config.dart';
 import 'package:beauty_salon/entity/Calendar.dart';
+import 'package:beauty_salon/screens/session_schedule/screens_navig_bar/ScheduleScreen1/%D0%A1ompletionProcess.dart';
 import 'package:beauty_salon/tools/HumanData.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -158,7 +159,11 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
           itemCount: humansData.length,
           itemBuilder: (BuildContext context, index) {
             return GestureDetector(
-              onTap: (){},
+              onTap: (){
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) =>
+                    CompletionProcess(humanData: humansData[index],)));
+              },
               child: InkWell(
                 //onTap: (){},
                 child: Card(

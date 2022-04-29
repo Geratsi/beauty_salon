@@ -1,9 +1,11 @@
 import 'package:beauty_salon/config.dart';
 import 'package:beauty_salon/screens/master_profile/MasterProfile.dart';
 import 'package:beauty_salon/screens/session_schedule/screens_navig_bar/ProfileScreen3/component/calculaterWidget.dart';
+import 'package:beauty_salon/screens/session_schedule/screens_navig_bar/ProfileScreen3/component/salaryInformation.dart';
 import 'package:beauty_salon/tools/HumanData.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -25,6 +27,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        systemOverlayStyle:
+        const SystemUiOverlayStyle(statusBarColor: Config.primaryColor),
         elevation: 0,
         title: Text(
           'Профиль',
@@ -134,7 +138,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(
                 height: Config.padding * 2,
               ),
-              CulculatorWidget(),
+              SalaryInformation(),
             ],
           ),
         ),

@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-       systemNavigationBarColor: Colors.white,
-       statusBarColor: Config.primaryColor, // status bar color
-         statusBarIconBrightness: Brightness.dark, // status bar icons' color
-         systemNavigationBarIconBrightness: Brightness.dark, //navigation bar icons' color
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      systemNavigationBarColor: Colors.white,
+      statusBarColor: Config.primaryColor, // status bar color
+      statusBarIconBrightness: Brightness.dark, // status bar icons' color
+      systemNavigationBarIconBrightness: Brightness.dark, //navigation bar icons' color
     ));
     return MaterialApp(
       title: 'Beauty salon',
